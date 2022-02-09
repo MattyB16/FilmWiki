@@ -2,20 +2,21 @@ package com.sakilaDB.TSI.matthew.barker.demo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Language {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy= GenerationType.TABLE)
     private int language_id;
 
     private String name;
 
     public Language(String name){
 
-        this.name =name;
+        this.name=name;
 
     }
 

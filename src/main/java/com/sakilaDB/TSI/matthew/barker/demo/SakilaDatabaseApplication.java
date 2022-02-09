@@ -15,17 +15,16 @@ public class SakilaDatabaseApplication {
 
 	public SakilaDatabaseApplication(LanguageRepository languageRepository){
 
-		this.languageRepository = languageRepository;
 	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SakilaDatabaseApplication.class, args);
 	}
+
 	@GetMapping("/AllLanguages")
 	public @ResponseBody
-	Iterable<Language> getAllLanguages(){
+	Iterable <Language> getAllLanguages (){
 		return languageRepository.findAll();
 	}
-
 
 }
