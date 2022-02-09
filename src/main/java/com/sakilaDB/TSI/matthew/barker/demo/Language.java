@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Language {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int language_id;
 
     private String name;

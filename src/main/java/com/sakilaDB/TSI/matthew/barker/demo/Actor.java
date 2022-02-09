@@ -9,7 +9,7 @@ import javax.persistence.Id;
 public class Actor {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int actor_id;
     private String first_name;
     private String last_name;

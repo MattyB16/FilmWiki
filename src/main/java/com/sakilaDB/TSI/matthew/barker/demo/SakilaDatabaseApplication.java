@@ -18,6 +18,8 @@ public class SakilaDatabaseApplication {
 	private ActorRepository actorRepository;
 	@Autowired
 	private FilmRepository filmRepository;
+	private String save = "Save";
+
 
 	public SakilaDatabaseApplication(LanguageRepository languageRepository,CategoryRepository categoryRepository, ActorRepository actorRepository, FilmRepository filmRepository){
 
@@ -38,6 +40,13 @@ public class SakilaDatabaseApplication {
 		return languageRepository.findAll();
 	}
 
+	@PostMapping("/addLanguages")
+	public @ResponseBody String addLanguage(@RequestParam String name){
+		Language addLanguage = new Language(name);
+		languageRepository.save(addLanguage);
+		return save;
+	}
+
 	@GetMapping("/AllCategories")
 	public @ResponseBody
 	Iterable <Category> getAllCategories (){
@@ -55,5 +64,13 @@ public class SakilaDatabaseApplication {
 	Iterable <Film> getAllFilms (){
 		return filmRepository.findAll();
 	}
+
+
+
+
+//	Language createLanguage(@Validated @ResponseBody Language newLanguage){
+//		return languageRepository.save(newLanguage);
+//	}
+
 
 }

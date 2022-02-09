@@ -1,4 +1,4 @@
-package com.sakilaDB.TSI.matthew.barker.demo;
+package com.sakilaDB.TSI.matthew.barker.demoTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
