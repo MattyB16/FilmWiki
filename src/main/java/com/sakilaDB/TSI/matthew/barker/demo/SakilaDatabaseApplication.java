@@ -53,24 +53,18 @@ public class SakilaDatabaseApplication {
 		return categoryRepository.findAll();
 	}
 
+
 	@GetMapping("/AllActors")
 	public @ResponseBody
 	Iterable <Actor> getAllActors (){
 		return actorRepository.findAll();
 	}
 
+
 	@GetMapping("/AllFilms")
 	public @ResponseBody
 	Iterable <Film> getAllFilms (){
 		return filmRepository.findAll();
 	}
-
-
-
-
-//	Language createLanguage(@Validated @ResponseBody Language newLanguage){
-//		return languageRepository.save(newLanguage);
-//	}
-
 
 }

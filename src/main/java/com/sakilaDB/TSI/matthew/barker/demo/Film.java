@@ -1,9 +1,8 @@
 package com.sakilaDB.TSI.matthew.barker.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Film {
@@ -17,6 +16,16 @@ public class Film {
     private int length;
     private String rating;
     private String special_features;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "film_actor",
+            joinColumns = {
+                    @JoinColumn(name = "film_id", referencedColumnName = "film_id",
+                            nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "actor_id", referencedColumnName = "actor_id",
+                            nullable = false, updatable = false)})
+    private Set<Actor> actor = new HashSet<>();
 
 
     public Film(String title,String description, int release_year, int length, String rating, String special_features){
@@ -32,6 +41,14 @@ public class Film {
 
     public Film(){
 
+    }
+
+    public Set<Actor> getActors() {
+        return actor;
+    }
+
+    public void setActors(Set<Actor> actor) {
+        this.actor = actor;
     }
 
     public int getFilm_id() {

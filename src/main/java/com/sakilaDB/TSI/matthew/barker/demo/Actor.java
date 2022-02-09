@@ -1,9 +1,10 @@
 package com.sakilaDB.TSI.matthew.barker.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Actor {
@@ -14,6 +15,10 @@ public class Actor {
     private String first_name;
     private String last_name;
 
+    @ManyToMany(mappedBy = "actor", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Film> film = new HashSet<>();
+
     public Actor(String first_name, String last_name){
 
         this.first_name=first_name;
@@ -23,6 +28,14 @@ public class Actor {
 
     public Actor(){
 
+    }
+
+    public Set<Film> getFilm() {
+        return film;
+    }
+
+    public void setFilm(Set<Film>film){
+        this.film = film;
     }
 
     public int getActor_id() {
