@@ -42,7 +42,7 @@ public class Film {
         return title;
     }
 
-    public void setName(String name) {
+    public void setName(String title) {
         this.title = title;
     }
 
