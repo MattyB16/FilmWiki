@@ -20,15 +20,18 @@ public class SakilaDatabaseApplication {
 	private ActorRepository actorRepository;
 	@Autowired
 	private FilmRepository filmRepository;
+	@Autowired
+	private Film_ActorRepository film_actorRepository;
 	private String save = "Save";
 
 
-	public SakilaDatabaseApplication(LanguageRepository languageRepository,CategoryRepository categoryRepository, ActorRepository actorRepository, FilmRepository filmRepository){
+	public SakilaDatabaseApplication(LanguageRepository languageRepository,CategoryRepository categoryRepository, ActorRepository actorRepository, FilmRepository filmRepository, Film_ActorRepository film_actorRepository){
 
 		this.languageRepository = languageRepository;
 		this.categoryRepository = categoryRepository;
 		this.actorRepository = actorRepository;
 		this.filmRepository = filmRepository;
+		this.film_actorRepository = film_actorRepository;
 
 	}
 
@@ -42,7 +45,7 @@ public class SakilaDatabaseApplication {
 		return languageRepository.findAll();
 	}
 
-	@PostMapping("/addLanguages")
+	@PostMapping("/addLanguage")
 	public @ResponseBody String addLanguage(@RequestParam String name){
 		Language addLanguage = new Language(name);
 		languageRepository.save(addLanguage);
@@ -73,6 +76,13 @@ public class SakilaDatabaseApplication {
 		return actorRepository.findAll();
 	}
 
+	@PostMapping("/addActor")
+	public @ResponseBody String addActor(@RequestParam String first_name, String last_name){
+		Actor addActor = new Actor(first_name, last_name);
+		actorRepository.save(addActor);
+		return save;
+	}
+
 	@GetMapping("/GetActors/{actor_id}")
 	public @ResponseBody
 	Optional<Actor> getActorByID(@PathVariable int actor_id){
@@ -97,5 +107,14 @@ public class SakilaDatabaseApplication {
 	Optional<Film> getFilmByID(@PathVariable int film_id){
 		return filmRepository.findById(film_id);
 	}
+
+	@PostMapping("/assignFilm_Actor")
+	public @ResponseBody String addFilm_Actor(@RequestParam int film_id, int actor_id){
+		Film_Actor addFilm_Actor = new Film_Actor(film_id, actor_id);
+		film_actorRepository.save(addFilm_Actor);
+		return save;
+	}
+
+
 
 }
