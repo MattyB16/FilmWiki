@@ -15,7 +15,7 @@ public class Film {
     private int release_year;
     private int length;
     private String rating;
-    private String special_features;
+    private int language_id;
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "film_actor",
@@ -28,14 +28,14 @@ public class Film {
     private Set<Actor> actor = new HashSet<>();
 
 
-    public Film(String title,String description, int release_year, int length, String rating, String special_features){
+    public Film(String title, String description, int release_year, int length, String rating,  int language_id){
 
         this.title=title;
         this.description=description;
         this.release_year=release_year;
         this.length=length;
         this.rating=rating;
-        this.special_features=special_features;
+        this.language_id =language_id;
 
     }
 
@@ -49,6 +49,14 @@ public class Film {
 
     public void setActors(Set<Actor> actor) {
         this.actor = actor;
+    }
+
+    public int getLanguage_id() {
+        return language_id;
+    }
+
+    public void setLanguage_id(int language_id) {
+        this.language_id = language_id;
     }
 
     public int getFilm_id() {
@@ -95,11 +103,4 @@ public class Film {
         this.rating = rating;
     }
 
-    public String getSpecial_features() {
-        return special_features;
-    }
-
-    public void setSpecial_features(String special_features) {
-        this.special_features = special_features;
-    }
 }
