@@ -4,6 +4,9 @@ import com.sakilaDB.TSI.matthew.barker.demo.Actor;
 import com.sakilaDB.TSI.matthew.barker.demo.Film;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -55,6 +58,25 @@ public class FilmTest {
         Film testLanguage_id= new Film();
         testLanguage_id.setLanguage_id(3);
         assertEquals(3,testLanguage_id.getLanguage_id(),  "Incorrect Language ID!");
+    }
+
+    private Set<Actor> testActorSet = new HashSet<>(){{
+        add(new Actor("Me","You"));
+    }};
+
+    Film testFilm = new Film("1","1",1,1,"1",1);
+
+    @Test
+    public void testGetActors() {
+        testFilm.setActors(testActorSet);
+        assertEquals(testActorSet, testFilm.getActors(),  "Incorrect Actor getting");
+    }
+
+    @Test
+    public void testSetActorSet(){
+        testActorSet.add(new Actor("me","you"));
+        testFilm.setActors(testActorSet);
+        assertEquals(testActorSet, testFilm.getActors(), "Incorrect Actor setting");
     }
 
 
