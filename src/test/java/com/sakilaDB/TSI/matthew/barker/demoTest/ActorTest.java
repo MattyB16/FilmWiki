@@ -8,11 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ActorTest {
 
-    private int actor_id;
-    public void setActor_id(int actor_id) {
-        this.actor_id = actor_id;
-    }
-
     @Test
     public void testFirstName() {
 
