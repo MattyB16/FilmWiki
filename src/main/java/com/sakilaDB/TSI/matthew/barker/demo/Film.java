@@ -2,6 +2,7 @@ package com.sakilaDB.TSI.matthew.barker.demo;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -27,6 +28,11 @@ public class Film {
                             nullable = false, updatable = false)})
     private Set<Actor> actor = new HashSet<>();
 
+    @OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
+    private List<Review> reviews;
+
+
+
 
     public Film(String title, String description, int release_year, int length, String rating,  int language_id){
 
@@ -41,6 +47,19 @@ public class Film {
 
     public Film(){
 
+    }
+
+
+    public void addActor(){
+
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Set<Actor> getActors() {

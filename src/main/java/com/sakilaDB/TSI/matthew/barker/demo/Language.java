@@ -11,7 +11,6 @@ public class Language {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int language_id;
-
     private String name;
 
     public Language(String name){

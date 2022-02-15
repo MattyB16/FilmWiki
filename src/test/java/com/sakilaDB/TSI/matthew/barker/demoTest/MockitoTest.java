@@ -23,11 +23,13 @@ public class MockitoTest {
     private FilmRepository filmRepository;
     @Mock
     private Film_ActorRepository film_actorRepository;
+    @Mock
+    private ReviewRepository reviewRepository;
 
 
     @BeforeEach
     void Setup(){
-        sakilaDatabaseApplication = new SakilaDatabaseApplication(languageRepository,categoryRepository,actorRepository,filmRepository,film_actorRepository);
+        sakilaDatabaseApplication = new SakilaDatabaseApplication(languageRepository,categoryRepository,actorRepository,filmRepository,film_actorRepository,reviewRepository);
     }
 
     @Test

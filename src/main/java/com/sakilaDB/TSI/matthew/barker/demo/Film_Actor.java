@@ -6,7 +6,9 @@ import java.util.Set;
 
 @Entity
 public class Film_Actor {
-    
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int film_id;
     private int actor_id;
 
