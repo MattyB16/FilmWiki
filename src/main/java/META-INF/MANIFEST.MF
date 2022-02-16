@@ -1,4 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.sakilaDB.TSI.matthew.barker.demo.SakilaDatabaseApplicati
- on
+Main-Class: com.sakilaDB.TSI.matthew.barker.demo.SakilaDatabaseApplication
 

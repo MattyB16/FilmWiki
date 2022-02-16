@@ -2,11 +2,15 @@ package com.sakilaDB.TSI.matthew.barker.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.web.bind.annotation.*;
+
 
 import java.util.Optional;
 
+//@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 @SpringBootApplication
 @RestController
 @RequestMapping("/Home")
@@ -54,12 +58,6 @@ public class SakilaDatabaseApplication {
 		Language addLanguage = new Language(name);
 		languageRepository.save(addLanguage);
 		return save;
-	}
-
-	@GetMapping("/GetLanguage/{language_id}")
-	public @ResponseBody
-	Optional<Language> getLanguageByID(@PathVariable int language_id) {
-		return languageRepository.findById(language_id);
 	}
 
 	@GetMapping("/AllCategories")
@@ -137,11 +135,11 @@ public class SakilaDatabaseApplication {
 		return save;
 	}
 
-	@DeleteMapping("/removeLanguage/{language_id}")
-	public @ResponseBody
-	String removeLanguageByID(@PathVariable int language_id) {
-		languageRepository.deleteById(language_id);
-		return "The language with ID " + language_id + " has been deleted";
-	}
+//	@DeleteMapping("/removeLanguage/{language_id}")
+//	public @ResponseBody
+//	String removeLanguageByID(@PathVariable int language_id) {
+//		languageRepository.deleteById(language_id);
+//		return "The language with ID " + language_id + " has been deleted";
+//	}
 
 }
