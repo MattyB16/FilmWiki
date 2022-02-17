@@ -11,6 +11,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -35,6 +36,41 @@ public class MockitoTest {
     @BeforeEach
     void Setup(){
         sakilaDatabaseApplication = new SakilaDatabaseApplication(languageRepository,categoryRepository,actorRepository,filmRepository,film_actorRepository,reviewRepository);
+    }
+
+    @Test
+    public void testGetLanguage(){
+        Language testLanguage = new Language("name");
+        List<Language> languageList = new ArrayList<>();
+        languageList.add(testLanguage);
+        when(sakilaDatabaseApplication.getAllLanguages()).thenReturn(languageList);
+        Assertions.assertEquals(languageList, sakilaDatabaseApplication.getAllLanguages(), "This Language getting test has failed");
+    }
+
+    @Test
+    public void testGetFilm(){
+        Film testFilm = new Film("title", "description", 2022, 202, "rating", 3);
+        List<Film> filmList = new ArrayList<>();
+        filmList.add(testFilm);
+        when(sakilaDatabaseApplication.getAllFilms()).thenReturn(filmList);
+        Assertions.assertEquals(filmList, sakilaDatabaseApplication.getAllFilms(), "This film getting test has failed");
+    }
+
+
+    @Test
+    public void testGetActorById(){
+        Actor testActor = new Actor("firstName","lastName");
+        when(sakilaDatabaseApplication.getActorByID(0)).thenReturn(Optional.of(testActor));
+        Assertions.assertEquals(Optional.of(testActor), sakilaDatabaseApplication.getActorByID(0), "This Actor getting test has failed");
+    }
+
+    @Test
+    public void testGetActor(){
+        Actor testActor = new Actor("firstName","lastName");
+        List<Actor> actorList = new ArrayList<>();
+        actorList.add(testActor);
+        when(sakilaDatabaseApplication.getAllActors()).thenReturn(actorList);
+        Assertions.assertEquals(actorList, sakilaDatabaseApplication.getAllActors(), "This Actor getting test has failed");
     }
 
     @Test
@@ -73,23 +109,7 @@ public class MockitoTest {
         Assertions.assertEquals(expected,actual,"Data hasn't been entered into the mock database (Film)");
     }
 
-    @Test
-    public void testGetFilm(){
-        Film testFilm = new Film("title", "description", 2022, 202, "rating", 3);
-        List<Film> filmList = new ArrayList<>();
-        filmList.add(testFilm);
-        when(sakilaDatabaseApplication.getAllFilms()).thenReturn(filmList);
-        Assertions.assertEquals(filmList, sakilaDatabaseApplication.getAllFilms(), "This film getting test has failed");
-    }
 
-    @Test
-    public void testGetLanguage(){
-        Language testLanguage = new Language("name");
-        List<Language> languageList = new ArrayList<>();
-        languageList.add(testLanguage);
-        when(sakilaDatabaseApplication.getAllLanguages()).thenReturn(languageList);
-        Assertions.assertEquals(languageList, sakilaDatabaseApplication.getAllLanguages(), "This Language getting test has failed");
-    }
 
 
 

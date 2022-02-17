@@ -50,40 +50,25 @@ public class SakilaDatabaseApplication {
 		return languageRepository.findAll();
 	}
 
-	@PostMapping("/addLanguage")
-	public @ResponseBody
-	String addLanguage(@RequestParam String name) {
-		Language addLanguage = new Language(name);
-		languageRepository.save(addLanguage);
-		return save;
-	}
-
 	@GetMapping("/Category/All")
 	public @ResponseBody
 	Iterable<Category> getAllCategories() {
 		return categoryRepository.findAll();
 	}
 
-	@GetMapping("/GetCategory/{category_id}")
+	@GetMapping("/Category/{category_id}")
 	public @ResponseBody
 	Optional<Category> getCategoryByID(@PathVariable int category_id) {
 		return categoryRepository.findById(category_id);
 	}
 
-	@GetMapping("/Actors/All")
+	@GetMapping("/Actor/All")
 	public @ResponseBody
 	Iterable<Actor> getAllActors() {
 		return actorRepository.findAll();
 	}
 
-	@PostMapping("/addActor")
-	public @ResponseBody
-	String addActor(@RequestParam String first_name, String last_name) {
-		Actor addActor = new Actor(first_name, last_name);
-		actorRepository.save(addActor);
-		return save;
-	}
-	@GetMapping("/GetActors/{actor_id}")
+	@GetMapping("/Actor/{actor_id}")
 	public @ResponseBody
 	Optional<Actor> getActorByID(@PathVariable int actor_id) {
 		return actorRepository.findById(actor_id);
@@ -95,6 +80,20 @@ public class SakilaDatabaseApplication {
 		return filmRepository.findAll();
 	}
 
+	@GetMapping("/Film/{film_id}")
+	public @ResponseBody
+	Optional<Film> getFilmByID(@PathVariable int film_id) {
+		return filmRepository.findById(film_id);
+	}
+
+	@PostMapping("/Language/Add")
+	public @ResponseBody
+	String addLanguage(@RequestParam String name) {
+		Language addLanguage = new Language(name);
+		languageRepository.save(addLanguage);
+		return save;
+	}
+
 	@PostMapping("/Film/Add")
 	public @ResponseBody
 	String addFilm(@RequestParam String title, String description, int release_year, int length, String rating, int language_id) {
@@ -103,24 +102,11 @@ public class SakilaDatabaseApplication {
 		return save;
 	}
 
-	@GetMapping("/Film/{film_id}")
+	@PostMapping("/Actor/Add")
 	public @ResponseBody
-	Optional<Film> getFilmByID(@PathVariable int film_id) {
-		return filmRepository.findById(film_id);
-	}
-
-
-	@GetMapping("/Review/{film_id}")
-	public @ResponseBody
-	Optional<Review> getReviewByID(@PathVariable int film_id) {
-		return reviewRepository.findById(film_id);
-	}
-
-	@PostMapping("/Review/Add")
-	public @ResponseBody
-	String addReview(@RequestParam int film_id, String consumer_review) {
-		Review addReview = new Review(film_id, consumer_review);
-		reviewRepository.save(addReview);
+	String addActor(@RequestParam String first_name, String last_name) {
+		Actor addActor = new Actor(first_name, last_name);
+		actorRepository.save(addActor);
 		return save;
 	}
 
@@ -131,6 +117,15 @@ public class SakilaDatabaseApplication {
 		film_actorRepository.save(addFilm_Actor);
 		return save;
 	}
+
+	@PostMapping("/Review/Add")
+	public @ResponseBody
+	String addReview(@RequestParam int film_id, String consumer_review) {
+		Review addReview = new Review(film_id, consumer_review);
+		reviewRepository.save(addReview);
+		return save;
+	}
+
 
 //	@DeleteMapping("/Language/remove/{language_id}")
 //	public @ResponseBody
