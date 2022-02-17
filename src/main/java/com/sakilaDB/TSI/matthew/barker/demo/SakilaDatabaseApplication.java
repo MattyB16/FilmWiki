@@ -83,7 +83,6 @@ public class SakilaDatabaseApplication {
 		actorRepository.save(addActor);
 		return save;
 	}
-
 	@GetMapping("/GetActors/{actor_id}")
 	public @ResponseBody
 	Optional<Actor> getActorByID(@PathVariable int actor_id) {
