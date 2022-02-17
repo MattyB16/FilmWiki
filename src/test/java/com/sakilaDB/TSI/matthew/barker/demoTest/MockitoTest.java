@@ -55,7 +55,7 @@ public class MockitoTest {
         when(sakilaDatabaseApplication.getAllFilms()).thenReturn(filmList);
         Assertions.assertEquals(filmList, sakilaDatabaseApplication.getAllFilms(), "This film getting test has failed");
     }
-    
+
 
     @Test
     public void testGetActorById(){
@@ -97,17 +97,17 @@ public class MockitoTest {
         Assertions.assertEquals(expected,actual,"Data hasn't been entered into the mock database (Actor)");
     }
 
-    @Test
-    public void testAddFilm(){
-
-        Film saveFilm = new Film("testTitle", "testDescription", 2022, 200, "testRating", 1);
-        String expected = "Save";
-        String actual = sakilaDatabaseApplication.addFilm(saveFilm.getTitle(), saveFilm.getDescription(), saveFilm.getRelease_year(),saveFilm.getLength(), saveFilm.getRating(), saveFilm.getLanguage_id());
-        ArgumentCaptor<Film>filmArgumentCaptor = ArgumentCaptor.forClass(Film.class);
-        verify(filmRepository).save(filmArgumentCaptor.capture());
-        filmArgumentCaptor.getValue();
-        Assertions.assertEquals(expected,actual,"Data hasn't been entered into the mock database (Film)");
-    }
+//    @Test
+//    public void testAddFilm(){
+//
+//        Film saveFilm = new Film("testTitle", "testDescription", 2022, 200, "testRating", 1);
+//        String expected = "Save";
+//        String actual = sakilaDatabaseApplication.addFilm(saveFilm.getTitle(), saveFilm.getDescription(), saveFilm.getRelease_year(),saveFilm.getLength(), saveFilm.getRating(), saveFilm.getLanguage_id());
+//        ArgumentCaptor<Film>filmArgumentCaptor = ArgumentCaptor.forClass(Film.class);
+//        verify(filmRepository).save(filmArgumentCaptor.capture());
+//        filmArgumentCaptor.getValue();
+//        Assertions.assertEquals(expected,actual,"Data hasn't been entered into the mock database (Film)");
+//    }
 
 
 
