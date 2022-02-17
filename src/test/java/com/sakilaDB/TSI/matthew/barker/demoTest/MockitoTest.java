@@ -55,6 +55,7 @@ public class MockitoTest {
         when(sakilaDatabaseApplication.getAllFilms()).thenReturn(filmList);
         Assertions.assertEquals(filmList, sakilaDatabaseApplication.getAllFilms(), "This film getting test has failed");
     }
+    
 
     @Test
     public void testGetActorById(){
