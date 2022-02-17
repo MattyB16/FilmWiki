@@ -8,7 +8,12 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 public class MockitoTest {
@@ -67,5 +72,18 @@ public class MockitoTest {
         filmArgumentCaptor.getValue();
         Assertions.assertEquals(expected,actual,"Data hasn't been entered into the mock database (Film)");
     }
+
+    @Test
+    public void testGetFilm(){
+        Film testFilm = new Film("title", "description", 2022, 202, "rating", 3);
+        List<Film> filmList = new ArrayList<>();
+        filmList.add(testFilm);
+        when(sakilaDatabaseApplication.getAllFilms()).thenReturn(filmList);
+        Assertions.assertEquals(filmList, sakilaDatabaseApplication.getAllFilms(), "This film getting test has failed");
+    }
+
+
+
+
 
 }
