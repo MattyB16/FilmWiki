@@ -1,5 +1,6 @@
 package com.sakilaDB.TSI.matthew.barker.demoTest;
 
+import com.sakilaDB.TSI.matthew.barker.demo.Film;
 import com.sakilaDB.TSI.matthew.barker.demo.Language;
 import org.junit.jupiter.api.Test;
 
@@ -22,5 +23,10 @@ public class LanguageTest {
     @Test
     public void test_constructor() {
         assertTrue(language instanceof Language, "Not an instance of Review");
+    }
+
+    @Test
+    public void testGetLanguage_id(){
+        assertEquals(0, language.getLanguage_id(), "Language id getting failed");
     }
 }

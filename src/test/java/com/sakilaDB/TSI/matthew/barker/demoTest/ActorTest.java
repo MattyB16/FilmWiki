@@ -53,4 +53,10 @@ public class ActorTest {
         testActor.setFilm(testFilmSet);
         assertEquals(testFilmSet, testActor.getFilm(), "Incorrect Actor setting");
     }
+
+
+    @Test
+    public void testGetActor_id(){
+        assertEquals(0, actor.getActor_id(), "actor id getting failed");
+    }
 }

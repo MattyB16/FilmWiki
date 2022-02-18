@@ -1,5 +1,6 @@
 package com.sakilaDB.TSI.matthew.barker.demoTest;
 
+import com.sakilaDB.TSI.matthew.barker.demo.Film;
 import com.sakilaDB.TSI.matthew.barker.demo.Language;
 import com.sakilaDB.TSI.matthew.barker.demo.Review;
 import org.junit.jupiter.api.Test;
@@ -24,12 +25,15 @@ public class ReviewTest {
         testReview.setConsumer_review("stuff");
         assertEquals("stuff", testReview.getConsumer_review(), "Incorrect review!");
     }
-
-
     private Review review = new Review();
 
     @Test
     public void test_constructor() {
         assertTrue(review instanceof Review, "Not an instance of Review");
+    }
+
+    @Test
+    public void testGetReview_id(){
+            assertEquals(0, review.getReview_id(), "Review id getting or setting failed");
     }
 }

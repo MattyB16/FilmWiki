@@ -81,10 +81,17 @@ public class FilmTest {
     }
 
     @Test
-    public void test_constructor(){
+    public void test_constructorFilm(){
         Film film = new Film();
 
         assertTrue(film instanceof Film, "Not an instance of Film");
+    }
+
+    @Test
+    public void test_constructorActor(){
+        Actor actor = new Actor();
+
+        assertTrue(actor instanceof Actor, "Not an instance of Actor");
     }
 
     private List testReview;
@@ -92,8 +99,12 @@ public class FilmTest {
     @Test
     public void testGetReview(){
         testFilm.setReviews(testReview);
-        assertEquals(testReview, testFilm.getReviews());
+        assertEquals(testReview, testFilm.getReviews(), "Review setting or getting failed");
     }
 
-
+    private Film film = new Film();
+    @Test
+    public void testGetFilm_id(){
+        assertEquals(0, film.getFilm_id(), "film id getting failed");
+    }
 }
