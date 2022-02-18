@@ -1,8 +1,6 @@
 package com.sakilaDB.TSI.matthew.barker.demo;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 public class Film_Actor {
