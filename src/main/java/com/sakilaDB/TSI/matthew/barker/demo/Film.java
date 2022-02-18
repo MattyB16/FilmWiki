@@ -49,11 +49,6 @@ public class Film {
 
     }
 
-
-    public void addActor(){
-
-    }
-
     public List<Review> getReviews() {
         return reviews;
     }

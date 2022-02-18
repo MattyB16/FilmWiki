@@ -120,9 +120,9 @@ public class SakilaDatabaseApplication {
 
 	@PostMapping("/Film_Actor/Assign")
 	public @ResponseBody
-	String addFilm_Actor(@RequestParam int film_id, int actor_id) {
-		Film_Actor addFilm_Actor = new Film_Actor(film_id, actor_id);
-		film_actorRepository.save(addFilm_Actor);
+	String assignFilm_Actor(@RequestParam int film_id, int actor_id) {
+		Film_Actor assignFilm_Actor = new Film_Actor(film_id, actor_id);
+		film_actorRepository.save(assignFilm_Actor);
 		return save;
 	}
 

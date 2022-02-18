@@ -148,7 +148,7 @@ public class MockitoTest {
 
         Film_Actor saveFilm_Actor = new Film_Actor(1,1);
         String expected = "Save";
-        String actual = sakilaDatabaseApplication.addFilm_Actor(saveFilm_Actor.getFilm_id(), saveFilm_Actor.getActor_id());
+        String actual = sakilaDatabaseApplication.assignFilm_Actor(saveFilm_Actor.getFilm_id(), saveFilm_Actor.getActor_id());
         ArgumentCaptor<Film_Actor>film_actorArgumentCaptor = ArgumentCaptor.forClass(Film_Actor.class);
         verify(film_actorRepository).save(film_actorArgumentCaptor.capture());
         film_actorArgumentCaptor.getValue();

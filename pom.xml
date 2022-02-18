@@ -88,11 +88,6 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
-<!--		<dependency>-->
-<!--			<groupId>org.apache.velocity</groupId>-->
-<!--			<artifactId>velocity</artifactId>-->
-<!--			<version>1.5</version>-->
-<!--		</dependency>-->
 		<dependency>
 			<groupId>software.amazon.awssdk</groupId>
 			<artifactId>ec2</artifactId>
