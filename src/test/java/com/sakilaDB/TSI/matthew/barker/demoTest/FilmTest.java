@@ -73,12 +73,11 @@ public class FilmTest {
     }
 
     @Test
-    public void testSetActorSet(){
+    public void testSetActor(){
         testActorSet.add(new Actor("me","you"));
         testFilm.setActors(testActorSet);
         assertEquals(testActorSet, testFilm.getActors(), "Incorrect Actor setting");
     }
-
 
     @Test
     public void test_constructor(){

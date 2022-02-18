@@ -21,6 +21,6 @@ public class LanguageTest {
 
     @Test
     public void test_constructor() {
-        assertTrue(language instanceof Language, "Not an instance of Actor");
+        assertTrue(language instanceof Language, "Not an instance of Review");
     }
 }

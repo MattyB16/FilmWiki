@@ -22,6 +22,6 @@ public class CategoryTest {
 
     @Test
     public void test_constructor() {
-        assertTrue(category instanceof Category, "Not an instance of Actor");
+        assertTrue(category instanceof Category, "Not an instance of Category");
     }
 }

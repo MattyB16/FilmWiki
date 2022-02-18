@@ -51,11 +51,4 @@ public class Review {
         this.consumer_review = consumer_review;
     }
 
-    public int getFilm_film_id() {
-        return film_id;
-    }
-
-    public void setFilm_film_id(int film_id) {
-        this.film_id = film_id;
-    }
 }
