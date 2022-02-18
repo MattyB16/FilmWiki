@@ -5,6 +5,7 @@ import com.sakilaDB.TSI.matthew.barker.demo.Film;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -85,4 +86,14 @@ public class FilmTest {
 
         assertTrue(film instanceof Film, "Not an instance of Film");
     }
+
+    private List testReview;
+
+    @Test
+    public void testGetReview(){
+        testFilm.setReviews(testReview);
+        assertEquals(testReview, testFilm.getReviews());
+    }
+
+
 }
