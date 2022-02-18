@@ -110,14 +110,6 @@ public class SakilaDatabaseApplication {
 		return save;
 	}
 
-	@PostMapping("/Film_Actor/Assign")
-	public @ResponseBody
-	String addFilm_Actor(@RequestParam int film_id, int actor_id) {
-		Film_Actor addFilm_Actor = new Film_Actor(film_id, actor_id);
-		film_actorRepository.save(addFilm_Actor);
-		return save;
-	}
-
 	@PostMapping("/Review/Add")
 	public @ResponseBody
 	String addReview(@RequestParam int film_id, String consumer_review) {
@@ -126,6 +118,13 @@ public class SakilaDatabaseApplication {
 		return save;
 	}
 
+	@PostMapping("/Film_Actor/Assign")
+	public @ResponseBody
+	String addFilm_Actor(@RequestParam int film_id, int actor_id) {
+		Film_Actor addFilm_Actor = new Film_Actor(film_id, actor_id);
+		film_actorRepository.save(addFilm_Actor);
+		return save;
+	}
 
 //	@DeleteMapping("/Language/remove/{language_id}")
 //	public @ResponseBody
