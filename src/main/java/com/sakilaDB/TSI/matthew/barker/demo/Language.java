@@ -1,9 +1,11 @@
 package com.sakilaDB.TSI.matthew.barker.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Language {
@@ -12,6 +14,8 @@ public class Language {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int language_id;
     private String name;
+    private int film_id;
+
 
     public Language(String name){
 
@@ -22,6 +26,7 @@ public class Language {
     public Language(){
 
     }
+
 
     public int getLanguage_id() {
         return language_id;

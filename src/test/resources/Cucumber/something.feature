@@ -4,4 +4,3 @@
 #    Given I have selected a film
 #    When Film is not in "Spanish"
 #    Then I should be told "No"
-#

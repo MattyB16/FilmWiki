@@ -41,18 +41,18 @@ public class ActorTest {
 
     Actor testActor = new Actor("me", "you");
 
-    @Test
-    public void testGetFilms() {
-        testActor.setFilm(testFilmSet);
-        assertEquals(testFilmSet, testActor.getFilm(), "Incorrect Actor getting");
-    }
-
-    @Test
-    public void testSetFilmSet() {
-        testFilmSet.add(new Film("1", "1", 1, 1, "1", 1));
-        testActor.setFilm(testFilmSet);
-        assertEquals(testFilmSet, testActor.getFilm(), "Incorrect Actor setting");
-    }
+//    @Test
+//    public void testGetFilms() {
+//        testActor.setFilm(testFilmSet);
+//        assertEquals(testFilmSet, testActor.getFilm(), "Incorrect Actor getting");
+//    }
+//
+//    @Test
+//    public void testSetFilmSet() {
+//        testFilmSet.add(new Film("1", "1", 1, 1, "1", 1));
+//        testActor.setFilm(testFilmSet);
+//        assertEquals(testFilmSet, testActor.getFilm(), "Incorrect Actor setting");
+//    }
 
 
     @Test

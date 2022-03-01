@@ -1,5 +1,6 @@
 package com.sakilaDB.TSI.matthew.barker.demo;
 
+import com.amazonaws.services.secretsmanager.model.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-
+@CrossOrigin(origins = "*")
 @SpringBootApplication
 @RestController
 @RequestMapping("/Home")
@@ -118,6 +119,23 @@ public class SakilaDatabaseApplication {
 		return save;
 	}
 
+
+	@PutMapping("/Review/Update/{review_id}")
+	public @ResponseBody
+	String updateActor(@PathVariable int review_id, @RequestParam String consumer_review){
+		Review updateReview = reviewRepository.findById(review_id).orElseThrow(() ->new ResourceNotFoundException("Review not found"));;
+		updateReview.setConsumer_review(consumer_review);
+		final Review updatedReview = reviewRepository.save(updateReview);
+		return "updated";
+	}
+
+	@DeleteMapping("/Review/Delete/{review_id}")
+	public @ResponseBody
+	String deleteReviewByID(@PathVariable int review_id) {
+		reviewRepository.deleteById(review_id);
+		return "deleted";
+	}
+
 	@PostMapping("/Film_Actor/Assign")
 	public @ResponseBody
 	String assignFilm_Actor(@RequestParam int film_id, int actor_id) {
@@ -125,12 +143,4 @@ public class SakilaDatabaseApplication {
 		film_actorRepository.save(assignFilm_Actor);
 		return save;
 	}
-
-//	@DeleteMapping("/Language/remove/{language_id}")
-//	public @ResponseBody
-//	String removeLanguageByID(@PathVariable int language_id) {
-//		languageRepository.deleteById(language_id);
-//		return "The language with ID " + language_id + " has been deleted";
-//	}
-
 }

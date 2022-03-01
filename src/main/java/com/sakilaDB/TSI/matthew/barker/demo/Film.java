@@ -28,10 +28,22 @@ public class Film {
                             nullable = false, updatable = false)})
     private Set<Actor> actor = new HashSet<>();
 
+
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JoinTable(name = "film_category",
+            joinColumns = {
+                    @JoinColumn(name = "film_id", referencedColumnName = "film_id",
+                            nullable = false, updatable = false)},
+            inverseJoinColumns = {
+                    @JoinColumn(name = "category_id", referencedColumnName = "category_id",
+                            nullable = false, updatable = false)})
+    private Set<Category> category = new HashSet<>();
+
+
+
     @OneToMany(mappedBy = "film", cascade = CascadeType.ALL)
     private List<Review> reviews;
-
-
 
 
     public Film(String title, String description, int release_year, int length, String rating,  int language_id){
@@ -57,12 +69,21 @@ public class Film {
         this.reviews = reviews;
     }
 
+
     public Set<Actor> getActors() {
         return actor;
     }
 
     public void setActors(Set<Actor> actor) {
         this.actor = actor;
+    }
+
+    public Set<Category> getCategory() {
+        return category;
+    }
+
+    public void setCategory(Set<Category> category) {
+        this.category = category;
     }
 
     public int getLanguage_id() {

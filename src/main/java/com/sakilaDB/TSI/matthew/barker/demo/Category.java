@@ -1,9 +1,10 @@
 package com.sakilaDB.TSI.matthew.barker.demo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Category {
@@ -11,8 +12,11 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int category_id;
-
     private String name;
+
+    @ManyToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private Set<Film> film = new HashSet<>();
 
     public Category(String name){
 
@@ -34,5 +38,13 @@ public class Category {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Set<Film> getFilm() {
+        return film;
+    }
+
+    public void setFilm(Set<Film> film) {
+        this.film = film;
     }
 }
