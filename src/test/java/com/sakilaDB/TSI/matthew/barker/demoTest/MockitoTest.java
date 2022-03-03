@@ -155,4 +155,12 @@ public class MockitoTest {
         Assertions.assertEquals(expected,actual,"Data hasn't been entered into the mock database (Review)");
     }
 
+    @Test
+    public void testDeleteReview(){
+
+
+
+
+    }
+
 }

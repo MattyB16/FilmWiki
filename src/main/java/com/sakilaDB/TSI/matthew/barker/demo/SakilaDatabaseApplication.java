@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "18.234.64.191")
 @SpringBootApplication
 @RestController
 @RequestMapping("/Home")
@@ -118,7 +118,6 @@ public class SakilaDatabaseApplication {
 		reviewRepository.save(addReview);
 		return save;
 	}
-
 
 	@PutMapping("/Review/Update/{review_id}")
 	public @ResponseBody
